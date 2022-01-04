@@ -10,8 +10,6 @@ import org.springframework.test.context.TestPropertySource;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 class ItemRepositoryTest {
@@ -30,7 +28,8 @@ class ItemRepositoryTest {
         item.setItemSellStatus(ItemSellStatus.SELL);
         item.setRegTime(LocalDateTime.now());
         item.setUpdateTime(LocalDateTime.now());
-        System.out.println(item.toString());
+        Item savedItem = itemRepository.save(item);
+        System.out.println(savedItem.toString());
     }
 
 
