@@ -135,7 +135,6 @@ class ItemRepositoryTest {
         String itemDetail = "테스트 상품 상세 설명";
         int price = 10003;
         String itemSellStat = "SELL";
-
         booleanBuilder.and(item.itemDetail.like("%" + itemDetail + "%"));
         booleanBuilder.and(item.price.gt(price));
         if(StringUtils.equals(itemSellStat, ItemSellStatus.SELL)){
