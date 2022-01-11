@@ -32,7 +32,7 @@ public class MemberService implements UserDetailsService {
 
     //로그인 로그아웃기능 구현
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException { //email - 유저를 식별할 수 있는 ID
         //회원정보 조회하여 사용자의 정보와 권한을 담고있는 UserDetails 인터페이스를 반환
         Member member = memberRepository.findByEmail(email);
 
