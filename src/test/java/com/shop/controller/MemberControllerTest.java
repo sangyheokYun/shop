@@ -48,10 +48,10 @@ class MemberControllerTest {
         String password ="1234";
         this.createMember(email, password);
 
-        mockMvc.perform(formLogin().userParameter("email")
-                .loginProcessingUrl("/members/login")
+        mockMvc.perform(formLogin().userParameter("email") //email을 아이디로 세팅
+                .loginProcessingUrl("/members/login") //로그인 URL에 요청
                 .user(email).password(password))
-                .andExpect(SecurityMockMvcResultMatchers.authenticated());
+                .andExpect(SecurityMockMvcResultMatchers.authenticated()); //로그인 성공하여 인증시 테스트 통과
     }
 
     @Test
