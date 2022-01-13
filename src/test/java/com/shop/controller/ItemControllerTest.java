@@ -37,7 +37,7 @@ class ItemControllerTest {
     public void itemFormNotAdminTest() throws Exception{
         mockMvc.perform(MockMvcRequestBuilders.get("/admin/item/new"))
                 .andDo(print())
-                .andExpect(status().isForbidden()); //Forbidden예외 발생 시 테스트 성공
-    }
+                .andExpect(status().isForbidden()); //Forbidden예외 발생 시 테스트 성공공
+   }
 
 }
