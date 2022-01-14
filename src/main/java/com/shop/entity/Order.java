@@ -30,7 +30,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus; //주문상태
 
-    @OneToMany(mappedBy = "order") //OrderItem의 order에 의해 관리된다는 의미
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL) //OrderItem의 order에 의해 관리된다는 의미
     private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime regTime;
