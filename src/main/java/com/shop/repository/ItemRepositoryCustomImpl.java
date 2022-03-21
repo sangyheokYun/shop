@@ -90,6 +90,7 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom{
                 .select(new QMainItemDto(item.id, item.itemNm, item.itemDetail, itemImg.imgUrl, item.price))
                 .from(itemImg)
                 .join(itemImg.item, item)
+                .where(itemImg.repimgYn.eq("Y"))
                 .where(itemNmLike(itemSearchDto.getSearchQuery()))
                 .orderBy(item.id.desc())
                 .offset(pageable.getOffset())
