@@ -36,7 +36,7 @@ public class Order extends BaseEntity{
 
 
 
-    public void addOrderItem(OrderItem orderItem){
+    public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
         orderItem.setOrder(this);
     }
@@ -54,12 +54,19 @@ public class Order extends BaseEntity{
         return order;
     }
 
-    public int getTotalPrice() { //총 주문 금액을 구하는 메소드
+    public int getTotalPrice() {
         int totalPrice = 0;
         for(OrderItem orderItem : orderItems){
             totalPrice += orderItem.getTotalPrice();
         }
         return totalPrice;
+    }
+
+    public void cancelOrder() {
+        this.orderStatus = OrderStatus.CANCEL;
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
     }
 
 }
